@@ -1,0 +1,46 @@
+syntax = "proto3"
+
+package smartplace.auth.v1;
+
+option java_multiple_files = true;
+option java_package = "com.smartplace.contracts.auth.v1";
+
+service AuthService {
+    rpc GetUserById(GetUserByIdRequest) returns (GetUserByIdResponse);
+    rpc GetUserByAuthProviderId(GetUserByAuthProviderIdRequest) returns (UserResponse);
+    rpc GetUserRoles(GetUserRolesRequest) returns (GetUserRolesResponse);
+    rpc ValidateUser(ValidateUserRequest) returns (ValidateUserResponse);
+}
+
+message GetUserByIdRequest {
+    string user_id = 1;
+}
+
+message GetUserByAuthProviderIdRequest {
+    string auth_provider_user_id = 1;
+}
+
+message GetUserRolesRequest {
+    string user_id = 1;
+}
+
+message ValidateUserRequest {
+    string user_id = 1;
+}
+
+message UserResponse {
+    string id = 1;
+    string email = 2;
+    string auth_provider = 3;
+    string auth_provider_user_id = 4;
+    string status = 5;
+    bool email_verified = 6;
+}
+
+message UserRoleResponse {
+    repeated string roles = 1;
+}
+message ValidateUserResponse {
+    bool valid = 1;
+    string status = 2;
+}

@@ -6,10 +6,18 @@ option java_multiple_files = true;
 option java_package = "com.smartplace.contracts.student.v1";
 
 service StudentService {
-    rpc GetStudentById(GetStudentByIdRequest) returns (StudentResponse);
-    rpc GetStudentByUserId(GetStudentByUserIdRequest) returns (StudentResponse);
-    rpc GetStudentAcademicSummary(GetStudentAcademicSummaryRequest) returns (StudentAcademicSummaryResponse);
-    rpc ValidateStudentProfile(ValidateStudentProfileRequest) returns (ValidateStudentProfileResponse);
+
+    rpc GetStudentById(GetStudentByIdRequest)
+        returns (StudentResponse);
+
+    rpc GetStudentByUserId(GetStudentByUserIdRequest)
+        returns (StudentResponse);
+
+    rpc GetStudentAcademicSummary(GetStudentAcademicSummaryRequest)
+        returns (StudentAcademicSummaryResponse);
+
+    rpc ValidateStudentProfile(ValidateStudentProfileRequest)
+        returns (ValidateStudentProfileResponse);
 }
 
 message GetStudentByIdRequest {
@@ -20,7 +28,7 @@ message GetStudentByUserIdRequest {
     string user_id = 1;
 }
 
-message GetStudentAccadmicSummaryRequest {
+message GetStudentAcademicSummaryRequest {
     string student_id = 1;
 }
 
@@ -28,27 +36,26 @@ message ValidateStudentProfileRequest {
     string student_id = 1;
 }
 
-message StudentResponse{
-    string id =1;
+message StudentResponse {
+    string id = 1;
     string user_id = 2;
     string student_number = 3;
     string full_name = 4;
     string department = 5;
     string branch = 6;
-    string graduation_year = 7;
+    int32 graduation_year = 7;
     string verification_status = 8;
     string placement_status = 9;
-
 }
 
-message StudentAccadmicSummaryResponse{
+message StudentAcademicSummaryResponse {
     string student_id = 1;
-    string cgpa = 2;
+    double cgpa = 2;
     int32 current_semester = 3;
     int32 active_backlogs = 4;
 }
 
-message ValidateStudentProfileResponse{
+message ValidateStudentProfileResponse {
     bool valid = 1;
     int32 profile_completion = 2;
     repeated string missing_fields = 3;

@@ -6,10 +6,18 @@ option java_multiple_files = true;
 option java_package = "com.smartplace.contracts.auth.v1";
 
 service AuthService {
-    rpc GetUserById(GetUserByIdRequest) returns (GetUserByIdResponse);
-    rpc GetUserByAuthProviderId(GetUserByAuthProviderIdRequest) returns (UserResponse);
-    rpc GetUserRoles(GetUserRolesRequest) returns (GetUserRolesResponse);
-    rpc ValidateUser(ValidateUserRequest) returns (ValidateUserResponse);
+
+    rpc GetUserById(GetUserByIdRequest)
+        returns (GetUserByIdResponse);
+
+    rpc GetUserByAuthProviderId(GetUserByAuthProviderIdRequest)
+        returns (UserResponse);
+
+    rpc GetUserRoles(GetUserRolesRequest)
+        returns (GetUserRolesResponse);
+
+    rpc ValidateUser(ValidateUserRequest)
+        returns (ValidateUserResponse);
 }
 
 message GetUserByIdRequest {
@@ -42,10 +50,6 @@ message GetUserByIdResponse {
 }
 
 message GetUserRolesResponse {
-    repeated string roles = 1;
-}
-
-message UserRoleResponse {
     repeated string roles = 1;
 }
 

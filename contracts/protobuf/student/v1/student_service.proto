@@ -6,9 +6,9 @@ option java_multiple_files = true;
 option java_package = "com.smartplace.contracts.student.v1";
 
 service StudentService {
-    rpc GetStudentById(GetStudentByIdRequest) returns (GetStudentByIdResponse);
-    rpc GetStudentByUserId(GetStudentByUserIdRequest) returns (GetStudentByUserIdResponse);
-    rpc GetStudentAccadmicSummary(GetStudentAccadmicSummaryRequest) returns (GetStudentAccadmicSummaryResponse);
+    rpc GetStudentById(GetStudentByIdRequest) returns (StudentResponse);
+    rpc GetStudentByUserId(GetStudentByUserIdRequest) returns (StudentResponse);
+    rpc GetStudentAcademicSummary(GetStudentAcademicSummaryRequest) returns (StudentAcademicSummaryResponse);
     rpc ValidateStudentProfile(ValidateStudentProfileRequest) returns (ValidateStudentProfileResponse);
 }
 

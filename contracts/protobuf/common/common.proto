@@ -1,4 +1,4 @@
-syntax="proto3"
+syntax="proto3";
 
 package smartplace.common.v1;
 
@@ -16,7 +16,7 @@ message PageRequest {
     int32 page = 1;
     int32 size = 2;
 }
-messsage PageMetadata {
+message PageMetadata {
     int32 page = 1;
     int32 size = 2;
     int64 total_elements = 3;

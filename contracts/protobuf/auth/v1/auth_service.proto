@@ -1,4 +1,4 @@
-syntax = "proto3"
+syntax = "proto3";
 
 package smartplace.auth.v1;
 
@@ -37,9 +37,18 @@ message UserResponse {
     bool email_verified = 6;
 }
 
+message GetUserByIdResponse {
+    UserResponse user = 1;
+}
+
+message GetUserRolesResponse {
+    repeated string roles = 1;
+}
+
 message UserRoleResponse {
     repeated string roles = 1;
 }
+
 message ValidateUserResponse {
     bool valid = 1;
     string status = 2;

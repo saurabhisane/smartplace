@@ -14,7 +14,7 @@ service StudentService {
         returns (StudentResponse);
 
     rpc GetStudentAcademicSummary(GetStudentAcademicSummaryRequest)
-        returns (StudentAcademicSummaryResponse);
+        returns (GetStudentAcademicSummaryResponse);
 
     rpc ValidateStudentProfile(ValidateStudentProfileRequest)
         returns (ValidateStudentProfileResponse);
@@ -48,7 +48,7 @@ message StudentResponse {
     string placement_status = 9;
 }
 
-message StudentAcademicSummaryResponse {
+message GetStudentAcademicSummaryResponse {
     string student_id = 1;
     double cgpa = 2;
     int32 current_semester = 3;
